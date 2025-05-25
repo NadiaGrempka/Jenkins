@@ -14,9 +14,7 @@ pipeline {
 
     stage('Checkout') {
           steps {
-            git url: 'https://github.com/NadiaGrempka/Jenkins.git',
-                credentialsId: "${GIT_CRED_ID}",
-                branch: 'main'
+            checkout scm
           }
         }
 
