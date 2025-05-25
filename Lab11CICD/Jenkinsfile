@@ -11,12 +11,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/NadiaGrempka/Jenkins.git',
-                    credentialsId: "${GIT_CRED_ID}"
-            } // Postęp 1: Dodano etap sprawdzania kodu źródłowego
-        }
 
         stage('Validation') {
             steps {
