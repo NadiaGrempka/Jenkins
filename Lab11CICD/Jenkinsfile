@@ -15,7 +15,7 @@ pipeline {
         stage('Validation') {
             steps {
                 sh '''
-                  for d in src/main/java src/test/java lib; do
+                  for d in src/main/java//org/example src/test/java/org/example lib; do
                     [ -d "$d" ] || { echo "Brak katalogu $d"; exit 1; }
                   done
                 '''
