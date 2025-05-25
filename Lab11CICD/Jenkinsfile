@@ -19,14 +19,17 @@ pipeline {
         }
 
         stage('Validation') {
-            steps {
-                sh '''
-                  for d in src/main/java src/test/java lib; do
-                    [ -d "$d" ] || { echo "Brak katalogu $d"; exit 1; }
-                  done
-                '''
-            }
-        }
+        			steps {
+        				script {
+        					for (d in ['src/main/java','src/test/java','lib']) {
+        						if (!fileExists(d)) {
+        							error("❗️Brak katalogu ${d}")
+                                }
+                            }
+                        }
+                    }
+                }
+
 
         stage('Build') {
             steps {
