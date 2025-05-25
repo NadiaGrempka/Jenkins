@@ -14,7 +14,10 @@ pipeline {
 
     stage('Checkout') {
           steps {
-            checkout scm
+            script {
+            					def scmVars = checkout scm
+                        echo "Checked out branch: ${scmVars.GIT_BRANCH}"
+                    		}
           }
         }
 
